@@ -1,11 +1,19 @@
 body {
     margin: 0;
     padding: 0;
-    background: linear-gradient(to right, #ff758c, #ff7eb3);
+    background: linear-gradient(-45deg, #ff758c, #ff7eb3, #ff4b5c, #ff9a9e);
+    background-size: 400% 400%;
+    animation: gradientMove 10s ease infinite;
     font-family: Arial, sans-serif;
     text-align: center;
     overflow: hidden;
     color: white;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .container {
@@ -64,4 +72,51 @@ button:hover {
     top: 0;
     left: 0;
     z-index: 1;
+}
+/* Smooth fade */
+.fade-in {
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Glow effect */
+.glow {
+    font-size: 50px;
+    text-shadow: 0 0 10px white,
+                 0 0 20px pink,
+                 0 0 30px red;
+}
+
+/* Floating hearts */
+.heart {
+    position: fixed;
+    bottom: -50px;
+    font-size: 24px;
+    animation: floatUp linear forwards;
+    pointer-events: none;
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-110vh);
+        opacity: 0;
+    }
+}
+
+/* Final screen center */
+.final-screen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.valentine {
+    margin-top: 20px;
+    font-size: 22px;
+    color: yellow;
 }
