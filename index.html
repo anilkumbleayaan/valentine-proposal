@@ -1,14 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>For My Love ❤️</title>
+    <title>For Kanna ❤️</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<audio id="bgMusic" loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+<canvas id="fireworks"></canvas>
+
+<div class="petals"></div>
+
 <div class="container">
-    <h1 id="message">Hey My Love ❤️</h1>
-    <button onclick="nextMessage()">Click Me</button>
+    <h1 id="message" class="typewriter">Hey Kanna ❤️</h1>
+    <button id="mainBtn" onclick="startProposal()">Click Me 💌</button>
+
+    <div id="proposal" class="hidden">
+        <h2 id="loveText"></h2>
+        <h2>Will you be my Valentine forever?</h2>
+
+        <div class="buttons">
+            <button class="yes-btn" onclick="sayYes()">YES ❤️</button>
+            <button class="no-btn" id="noBtn">NO 😜</button>
+        </div>
+    </div>
 </div>
 
 <script src="script.js"></script>
