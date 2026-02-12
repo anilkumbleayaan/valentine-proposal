@@ -1,81 +1,90 @@
+/* ===== GLOBAL STYLING ===== */
 body {
     margin: 0;
     padding: 0;
     background: linear-gradient(-45deg, #ff758c, #ff7eb3, #ff4b5c, #ff9a9e);
     background-size: 400% 400%;
-    animation: gradientMove 10s ease infinite;
-    font-family: Arial, sans-serif;
+    animation: gradientMove 12s ease infinite;
+    font-family: 'Poppins', Arial, sans-serif;
     text-align: center;
     overflow: hidden;
     color: white;
 }
 
+/* Animated Background */
 @keyframes gradientMove {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
 
+/* ===== MAIN CONTAINER ===== */
 .container {
     position: relative;
-    top: 30%;
-    transform: translateY(-30%);
-    z-index: 2;
+    top: 35%;
+    transform: translateY(-35%);
+    z-index: 3;
 }
 
+/* ===== GLASS PROPOSAL CARD ===== */
+#proposal {
+    backdrop-filter: blur(15px);
+    background: rgba(255, 255, 255, 0.15);
+    padding: 40px;
+    border-radius: 25px;
+    width: 90%;
+    max-width: 600px;
+    margin: auto;
+    box-shadow: 0 0 40px rgba(255, 0, 100, 0.4);
+}
+
+/* ===== BUTTONS ===== */
 button {
-    padding: 12px 25px;
+    padding: 14px 30px;
     font-size: 18px;
     border: none;
-    border-radius: 25px;
+    border-radius: 40px;
     cursor: pointer;
-    margin: 10px;
-    transition: 0.3s ease;
+    margin: 15px;
+    transition: all 0.3s ease;
+    font-weight: bold;
 }
 
-button:hover {
-    transform: scale(1.1);
-}
-
+/* YES Button */
 .yes-btn {
-    background: white;
-    color: #ff4b5c;
+    background: linear-gradient(45deg, #ff4b5c, #ff758c);
+    color: white;
+    box-shadow: 0 0 15px rgba(255, 0, 90, 0.7);
 }
 
+.yes-btn:hover {
+    transform: scale(1.15);
+    box-shadow: 0 0 25px rgba(255, 0, 90, 1);
+}
+
+/* NO Button */
 .no-btn {
     background: white;
     color: #333;
     position: absolute;
+    transition: 0.2s ease;
 }
 
+/* Hide */
 .hidden {
     display: none;
 }
 
-/* Flower petals */
-.petals::before {
-    content: "🌸 🌸 🌸 🌸 🌸 🌸 🌸 🌸 🌸 🌸";
-    position: absolute;
-    width: 100%;
-    animation: fall 10s linear infinite;
-    font-size: 25px;
+/* ===== TYPEWRITER TEXT ===== */
+#loveText {
+    font-size: 22px;
+    margin-bottom: 25px;
+    line-height: 1.6;
 }
 
-@keyframes fall {
-    0% { top: -10%; }
-    100% { top: 100%; }
-}
-
-/* Fireworks canvas */
-#fireworks {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1;
-}
-/* Smooth fade */
+/* ===== FADE IN ===== */
 .fade-in {
-    animation: fadeIn 2s ease-in-out;
+    animation: fadeIn 1.5s ease-in-out;
 }
 
 @keyframes fadeIn {
@@ -83,21 +92,53 @@ button:hover {
     to { opacity: 1; transform: scale(1); }
 }
 
-/* Glow effect */
+/* ===== GLOW TITLE ===== */
 .glow {
-    font-size: 50px;
-    text-shadow: 0 0 10px white,
-                 0 0 20px pink,
-                 0 0 30px red;
+    font-size: 55px;
+    text-shadow:
+        0 0 10px #fff,
+        0 0 20px #ff4b5c,
+        0 0 30px #ff758c,
+        0 0 40px #ff4b5c;
 }
 
-/* Floating hearts */
+/* ===== FINAL SCREEN ===== */
+.final-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    z-index: 3;
+}
+
+.final-screen h2 {
+    margin: 10px 0;
+}
+
+/* Valentine's line */
+.valentine {
+    margin-top: 20px;
+    font-size: 24px;
+    color: #ffe600;
+    text-shadow: 0 0 10px gold;
+}
+
+/* ===== FLOATING HEARTS ===== */
 .heart {
     position: fixed;
     bottom: -50px;
-    font-size: 24px;
+    font-size: 26px;
     animation: floatUp linear forwards;
     pointer-events: none;
+    z-index: 2;
 }
 
 @keyframes floatUp {
@@ -107,16 +148,26 @@ button:hover {
     }
 }
 
-/* Final screen center */
-.final-screen {
+/* ===== FLOWER PETALS ===== */
+.petals::before {
+    content: "🌸 🌸 🌸 🌸 🌸 🌸 🌸 🌸 🌸 🌸 🌸 🌸";
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    width: 100%;
+    animation: fall 12s linear infinite;
+    font-size: 26px;
+    opacity: 0.7;
 }
 
-.valentine {
-    margin-top: 20px;
-    font-size: 22px;
-    color: yellow;
+@keyframes fall {
+    0% { top: -10%; }
+    100% { top: 100%; }
+}
+
+/* ===== FIREWORKS CANVAS ===== */
+#fireworks {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    pointer-events: none;
 }
