@@ -1,33 +1,67 @@
 body {
+    margin: 0;
+    padding: 0;
     background: linear-gradient(to right, #ff758c, #ff7eb3);
     font-family: Arial, sans-serif;
     text-align: center;
+    overflow: hidden;
     color: white;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .container {
-    animation: fadeIn 2s ease-in-out;
+    position: relative;
+    top: 30%;
+    transform: translateY(-30%);
+    z-index: 2;
 }
 
 button {
-    padding: 12px 20px;
+    padding: 12px 25px;
     font-size: 18px;
     border: none;
     border-radius: 25px;
-    background: white;
-    color: #ff4b5c;
     cursor: pointer;
+    margin: 10px;
+    transition: 0.3s ease;
 }
 
 button:hover {
     transform: scale(1.1);
 }
 
-@keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity: 1;}
+.yes-btn {
+    background: white;
+    color: #ff4b5c;
+}
+
+.no-btn {
+    background: white;
+    color: #333;
+    position: absolute;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Flower petals */
+.petals::before {
+    content: "🌸 🌸 🌸 🌸 🌸 🌸 🌸 🌸 🌸 🌸";
+    position: absolute;
+    width: 100%;
+    animation: fall 10s linear infinite;
+    font-size: 25px;
+}
+
+@keyframes fall {
+    0% { top: -10%; }
+    100% { top: 100%; }
+}
+
+/* Fireworks canvas */
+#fireworks {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
 }
